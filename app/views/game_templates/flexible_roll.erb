@@ -1,0 +1,26 @@
+<h1> <%= @num_dice %>d<%=@num_sides%></h1> 
+
+<ul>
+  <% @rolls.each do |a_roll| %>
+    <li>
+      <%= a_roll %>
+    </li>
+  <% end %>
+</ul>
+
+
+#   get("/dice/:deer/:squirrel") do
+#     @num_dice = params.fetch("deer").to_i 
+#     @num_sides = params.fetch("squirrel").to_i
+    
+#     @rolls = []
+  
+#     @num_dice.times do
+#       die = rand(1..@num_sides)
+  
+#       @rolls.push(die)
+#     end
+  
+#     erb(:flexible)
+#   end
+# end

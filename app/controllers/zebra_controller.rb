@@ -11,6 +11,9 @@ class ZebraController < ApplicationController
   def five_four
     render({ :template => "game_templates/five_four" })
   end
+  def flexible_roll
+    render({ :template => "game_templates/flexible_roll" }) 
+  end
   def homepage
     render({ :template => "game_templates/homepage" })
   end
