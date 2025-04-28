@@ -1,20 +1,21 @@
 class ZebraController < ApplicationController
-  def two_six 
-    render({ :template => "game_templates/two_six" })
+  def dice_roll 
+    dice_count = params[:dice_num].to_i
+    sides_count = params[:dice_sides].to_i
+    @dice_result = roll_dice(dice_count, sides_count)
+    render({ :template => "game_templates/rolls" })
   end
-  def two_ten 
-    render({ :template => "game_templates/two_ten" })
-  end
-  def one_twenty 
-    render({ :template => "game_templates/one_twenty" })
-  end
-  def five_four
-    render({ :template => "game_templates/five_four" })
-  end
-  def flexible_roll
-    render({ :template => "game_templates/flexible_roll" }) 
+  def roll_dice(dice_count, sides_count)
+    dice_roll = []
+    dice_count.times do
+      dice_roll.push(rand(1..sides_count))
+    end
+    return{:dice => dice_count, :sides => sides_count, :rolls => dice_roll}
   end
   def homepage
     render({ :template => "game_templates/homepage" })
   end
 end
+
+
+#:dice_num/:dice_sides
